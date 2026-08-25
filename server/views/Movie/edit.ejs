@@ -1,0 +1,68 @@
+<%- include ../Partials/header.ejs %> <!-- Include header partial -->
+
+<body style="background-image: url(/Assets/images/background2.jpg); background-size: cover; background-position: center;">
+    <!-- Set background image and text color -->
+
+    <%- include ../Partials/main_nav.ejs %> <!-- Include navigation bar -->
+
+    <div class="container">
+        <div class="row">
+            <!-- A div with a semi-transparent dark background -->
+            <div class="offset-md-3 col-md-6" style="background: rgba(0, 0, 0, 0.7); background-attachment: fixed; color: white;">
+                
+                 <!-- Form to submit movie details -->
+                <form class="form" method="POST">
+                   
+                    <!-- Movie title input field -->
+                    <div class="form-group">
+                        <label for="titleTextField">Movie Title</label>
+                        <input type="text" class="form-control" id="titleTextField" placeholder="Enter the Movie Title" name="Title" value="<%= Movie.Title %>" required>
+                    </div>
+                    
+                    <!-- Movie genre input field -->
+                    <div class="form-group">
+                        <label for="genreTextField">Movie Genre</label>
+                        <input type="text" class="form-control" id="genreTextField" placeholder="Enter the Movie Genre" name="Genre" value="<%= Movie.Genre %>" required>
+                    </div>
+                    
+                    <!-- Movie release year input field -->
+                    <div class="form-group">
+                        <label for="releaseYearTextField">Movie ReleaseYear</label>
+                        <input type="text" class="form-control" id="releaseYearTextField" placeholder="Enter the Movie Release Year" name="ReleaseYear" value="<%= Movie.ReleaseYear %>" required>
+                    </div>
+                    
+                    <!-- Movie rating input field -->
+                    <div class="form-group">
+                        <label for="ratingTextField">Movie Rating</label>
+                        <input type="text" class="form-control" id="ratingTextField" placeholder="Enter the Movie Rating" name="Rating" value="<%= Movie.Rating %>" required>
+                    </div>
+                    
+                    <!-- Movie description input field -->
+                    <div class="form-group">
+                        <label for="descriptionTextField">Movie Description</label>
+                        <textarea class="form-control" id="descriptionTextField" placeholder="Enter the Movie Description" name="Description" required><%= Movie.Description %></textarea>
+                    </div>
+                    
+                    <!-- Movie status input field -->
+                    <div class="form-group">
+                        <label for="statusTextField">Movie Status</label>
+                        <input type="text" class="form-control" id="statusTextField" placeholder="Enter the Movie Status" name="Status" value="<%= Movie.Status %>" required>
+                    </div>
+                    
+                    <!-- Submit button to save the form data -->
+                    <button class="btn btn-primary" type="submit">
+                        Submit <i class="fas fa-edit"></i>
+                    </button>
+                    
+                    <!-- Cancel button styled with red color -->
+                    <button class="btn" type="submit" style="background-color: rgb(248, 24, 24); color: white;">
+                        Cancel <i class="fas fa-undo"></i>
+                    </button>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+<%- include ../Partials/footer.ejs %> <!-- Include footer partial -->

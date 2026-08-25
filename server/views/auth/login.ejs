@@ -1,0 +1,43 @@
+<%- include ../Partials/header.ejs %>
+<%- include ../Partials/main_nav.ejs %>
+
+<body style="background-image: url(/Assets/images/background.jpg); background-size: cover; background-position: center; background-attachment: fixed; color: white;">
+        <!-- Background and color styling -->
+
+
+    <div class="container min-vh-100 d-flex flex-column justify-content-center align-items-center" style="background: rgba(0, 0, 0, 0.7); border-radius: 15px; padding: 2rem;">
+        
+                <!-- Display error message if present -->
+
+        <% if (message.length > 0) { %>
+            <div class="alert alert-danger w-100 text-center">
+                <%= message %>
+            </div>
+        <% } %>
+
+                <!-- Registration Form -->
+
+        <div class="w-50">
+            <h1 class="text-center fw-bold mb-4">Please Login</h1>
+            <form method="post" autocomplete="off" class="p-3">
+                <fieldset class="form-group mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" name="username" placeholder="Enter your username" id="username" required autofocus>
+                </fieldset>
+                <fieldset class="form-group mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password" placeholder="Enter your password" id="password" required>
+                </fieldset>
+                <fieldset class="form-group mb-4 text-center">
+                    <a href="/register" class="btn btn-danger" style="font-size: 1rem; font-weight: bold;">Register</a>
+                </fieldset>
+                <fieldset class="form-group text-center">
+                    <input type="submit" class="btn btn-success px-4 py-2" value="Login">
+                    <a href="/" class="btn btn-warning px-4 py-2">Cancel</a>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</body>
+
+<%- include ../Partials/footer.ejs %>

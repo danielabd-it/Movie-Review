@@ -1,0 +1,89 @@
+<%- include ../Partials/header.ejs %> <!-- Include header partial -->
+
+<body style="background-image: url(/Assets/images/background2.jpg); background-size: cover; background-position: center;">
+    <!-- Set background image and text color -->
+
+    <%- include ../Partials/main_nav.ejs %> <!-- Include navigation bar -->
+
+    <main class="container py-5">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-10" style="background: rgba(0, 0, 0, 0.7);">
+                <!-- A div with a semi-transparent dark background -->
+
+                <br>
+
+                <%if (typeof displayName=='string' && displayName) { %>
+
+                <a href="/movieslist/add" class="btn btn-primary mb-3" style="background-color: #E50914; color: white;">
+                    <i class="fas fa-plus-circle"></i> Add Movie
+                </a>
+                <!-- Button to navigate to the page for adding a new movie -->
+
+                <!-- Table displaying a list of movies -->
+                 <%}%>
+                <table class="table table-bordered table-striped table-hover bg-white rounded shadow">
+                    
+                        <tr class="d-flex">
+                            <!-- Table headers for movie information -->
+                            <%if (typeof displayName=='string' && displayName) { %>
+                            <th class="text-center col-1">Title</th>
+                            <th class="text-center col-1">Genre</th>
+                            <th class="text-center col-2">Release Year</th>
+                            <th class="text-center col-1">Rating</th>
+                            <th class="col-4">Description</th>
+                            <th class="text-center col-1">Status</th>
+                            <th class="text-center col-1">Edit</th>
+                            <th class="text-center col-1">Delete</th>
+                            <% } else { %>
+                            <th class="text-center col-1">Title</th>
+                            <th class="text-center col-1">Genre</th>
+                            <th class="text-center col-2">Release Year</th>
+                            <th class="text-center col-1">Rating</th>
+                            <th class="col-4">Description</th>
+                            <th class="text-center col-1">Status</th>
+                        <% } %>
+                        </tr>
+                    
+                    
+                        <!-- Iterate through the movie list and display each movie's details -->
+                        <% for (let count = 0; count < MovieList.length; count++) { %>
+                        <tr class="d-flex">
+                            <!-- Movie details in each row -->
+                            <%if (typeof displayName=='string' && displayName) { %>
+                            <td class="text-center col-1"><%= MovieList[count].Title %></td>
+                            <td class="text-center col-1"><%= MovieList[count].Genre %></td>
+                            <td class="text-center col-2"><%= MovieList[count].ReleaseYear %></td>
+                            <td class="text-center col-1"><%= MovieList[count].Rating %></td>
+                            <td class="col-4"><%= MovieList[count].Description %></td>
+                            <td class="text-center col-1"><%= MovieList[count].Status %></td>
+                            
+                            <!-- Edit button linked to the movie's edit page -->
+                            <td class="text-center col-1">
+                                <a href="/movieslist/edit/<%= MovieList[count]._id %>" class="btn btn-primary btn-sm">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </a>
+                            </td>
+
+                            <!-- Delete button with confirmation before deletion -->
+                            <td class="text-center col-1">
+                                <a href="/movieslist/delete/<%= MovieList[count]._id %>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this schedule?');">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </td>
+                            <%} else { %>
+                            <td class="text-center col-1"><%= MovieList[count].Title %></td>
+                            <td class="text-center col-1"><%= MovieList[count].Genre %></td>
+                            <td class="text-center col-2"><%= MovieList[count].ReleaseYear %></td>
+                            <td class="text-center col-1"><%= MovieList[count].Rating %></td>
+                            <td class="col-4"><%= MovieList[count].Description %></td>
+                            <td class="text-center col-1"><%= MovieList[count].Status %></td>
+                        <% } %>
+                        </tr>
+                        <% } %>
+                </table>
+            </div>
+        </div>
+    </main>
+</body>
+
+<%- include ../Partials/footer.ejs %> <!-- Include footer partial -->

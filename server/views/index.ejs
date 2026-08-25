@@ -1,0 +1,28 @@
+<%- include Partials/header.ejs %> <!-- Include header partial -->
+
+<body style="background-image: url(/Assets/images/background.jpg); background-size: cover; background-position: center; background-attachment: fixed; color: white;">
+    <!-- Set background image and text color -->
+
+    <%- include Partials/main_nav.ejs %> <!-- Include navigation bar -->
+
+    <!-- Container with semi-transparent dark background -->
+    <div class="container min-vh-100 d-flex flex-column justify-content-center align-items-center" style="background: rgba(0, 0, 0, 0.7);">
+        
+        <!-- Heading and description -->
+        <div class="text-center">
+            <h1>Welcome to Movie Journal</h1> <!-- Main title -->
+            <p>
+                Record your movie experiences and plans
+            </p> <!-- Short description -->
+        </div>
+
+        <!-- Button to log movies -->
+        <div>
+            <a href="/movieslist" class="btn" style="background-color: rgb(228, 23, 13); color: white; font-size: 2rem; font-weight: bold;">
+                Log Movies
+            </a>
+        </div>
+    </div>
+
+    <%- include Partials/footer.ejs %> <!-- Include footer partial -->
+</body>
