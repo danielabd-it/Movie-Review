@@ -1,6 +1,6 @@
 # Movie Review Website
 
-A full-stack movie review website built with **Node.js, Express, MongoDB Atlas, and EJS**. The application allows users to create and manage personal movie reviews, making it useful as a private movie journal or personal movie-tracking platform.
+A full-stack movie review website built with **Node.js, Express, MongoDB Atlas, and EJS**. The application allows users to create and manage personal movie reviews, making it useful as a private movie journal or personal movie-tracking platform simmilar to popular websites like Letterboxd.
 
 ## Overview
 
